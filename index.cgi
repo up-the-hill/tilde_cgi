@@ -12,14 +12,6 @@ my $visits = read_counter();
 $visits++;
 update_counter($visits);
 
-#read the query string
-# my $query = $ENV{QUERY_STRING};
-# my $query_value = substr($query, 8);
-# if ($query_value) {
-#   my $message = uri_unescape($query_value . "\n");
-#   write_message(sanitize_input($message));
-# }
-
 # Read the messages from the file
 my @messages = read_messages();
 my $message_list = make_message_list(@messages);
