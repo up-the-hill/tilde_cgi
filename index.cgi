@@ -2,7 +2,6 @@
 
 use strict;
 use warnings;
-use URI::Escape;
 
 # File to store the visit count
 my $counter_file = "counter.txt";
@@ -14,12 +13,12 @@ $visits++;
 update_counter($visits);
 
 #read the query string
-my $query = $ENV{QUERY_STRING};
-my $query_value = substr($query, 8);
-if ($query_value) {
-  my $message = uri_unescape($query_value . "\n");
-  write_message(sanitize_input($message));
-}
+# my $query = $ENV{QUERY_STRING};
+# my $query_value = substr($query, 8);
+# if ($query_value) {
+#   my $message = uri_unescape($query_value . "\n");
+#   write_message(sanitize_input($message));
+# }
 
 # Read the messages from the file
 my @messages = read_messages();
@@ -55,13 +54,6 @@ sub update_counter {
     close($fh);
 }
 
-sub write_message {
-    my ($message) = @_;
-    open(my $fh, ">>", $messages_file) or die "Cannot open file $messages_file: $!";
-    print $fh $message;
-    close($fh);
-}
-
 sub make_message_list {
     my (@messages) = @_;
     my $res = "";
@@ -71,12 +63,6 @@ sub make_message_list {
     return $res
 }
 
-sub sanitize_input {
-    my ($string) = @_;
-    $string =~ s/[<>]//g;
-    $string =~ tr/+/ /;
-    return $string;
-}
 
 print <<HTML_HEADERS;
 Status: 200
@@ -104,7 +90,7 @@ print <<HTML_PAGE;
   <div class="messagebox">
     <ul>$message_list</ul>
 
-    <form action="https://tilde.club/~troubadour" method="post">
+    <form action="https://tilde.club/~troubadour/add.cgi" method="post">
       <!---<input type="text" id="name" name="name" required>--->
       <input type="text" id="message" name="message" required>
       <input type="submit" value="send!">
