@@ -70,6 +70,7 @@ print <<HTML_PAGE;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Troubadour's online home">
   <link rel="stylesheet" href="https://tilde.club/~troubadour/style.css">
   <title>Troubadour</title>
 </head>
@@ -104,30 +105,30 @@ print <<HTML_PAGE;
     <center>
       <font size="2">
         <center>
-          <br><img src="http://tilde.club/~harper/webring.png" border="0" usemap="#notepad.map"><br>
+          <br><img src="https://tilde.club/~harper/webring.png" border="0" usemap="#notepad.map" alt="webring"><br>
         </center>
         <br>
         Click for the [
-        <a href="http://tilde.club/~harper/link.html?action=random" target="_top">Random page</a> ]
+        <a href="https://tilde.club/~harper/link.html?action=random" target="_top">Random page</a> ]
         <br>
         Want to join the ring? Click here for
-        <a href="http://tilde.club/~harper/link.html?action=info" target="_top">info</a>.
+        <a href="https://tilde.club/~harper/link.html?action=info" target="_top">info</a>.
         <br>
       </font>
     </center>
     <map name="notepad.map">
-      <area shape="rect" coords="0, 0, 60, 70" target="_top" href="http://tilde.club/~harper/link.html?action=join">
+      <area shape="rect" coords="0, 0, 60, 70" target="_top" href="https://tilde.club/~harper/link.html?action=join">
       <area shape="rect" coords="130, 0, 417, 75" target="_top"
-        href="http://tilde.club/~harper/link.html?action=random">
-      <area shape="rect" coords="465, 0, 549, 75" target="_top" href="http://tilde.club/~harper/link.html?action=join">
+        href="https://tilde.club/~harper/link.html?action=random">
+      <area shape="rect" coords="465, 0, 549, 75" target="_top" href="https://tilde.club/~harper/link.html?action=join">
     </map>
   </center>
   <!-- End Webring Fragment-->
 
   <!-- Begin Tilde Club Badge -->
   <center>
-    <p><a href="http://tilde.club"><img src="http://tilde.club/~zarate/tildeclub.gif" border="0" width="88" height="31"
-          alt="Tilde Club Badge"></a></p>
+    <p><a href="https://tilde.club"><img src="https://tilde.club/~zarate/tildeclub.gif" border="0" width="88"
+          height="31" alt="Tilde Club Badge"></a></p>
   </center>
   <!-- End Tilde Club Badge -->
 
