@@ -4,7 +4,7 @@ My small webpage hosted on tilde.club.
 
 A cgi implemented using perl.
 
-### Workflow
+## Workflow
 
 All html changes are made to the html file.
 All serverside logic changes are made to the perl files.
