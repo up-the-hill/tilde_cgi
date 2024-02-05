@@ -148,6 +148,7 @@ textarea {
   color: darkorange;
   border: darkorange;
   border-radius: 4px;
+  padding: 0.2em;
 }
 
 div.alert-warning {
@@ -176,6 +177,7 @@ blockquote {
 .messages li {
   list-style-type: "";
   font-weight: normal;
+  padding: 1em 0 0 0;
 }
 
 form {
@@ -184,4 +186,8 @@ form {
 
 h2 {
   padding-left: 1rem;
+}
+
+input[type="submit"] {
+  padding: 0.2em;
 }
