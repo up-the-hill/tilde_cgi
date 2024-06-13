@@ -22,9 +22,11 @@ sub sanitize_input {
 
 sub write_message {
     my ($message) = @_;
-    open(my $fh, ">>", $messages_file) or die "Cannot open file $messages_file: $!";
-    print $fh $message;
-    close($fh);
+    if ($message ne "") {
+        open(my $fh, ">>", $messages_file) or die "Cannot open file $messages_file: $!";
+        print $fh $message;
+        close($fh);
+    }
 }
 
 print <<HTML_HEADERS;
