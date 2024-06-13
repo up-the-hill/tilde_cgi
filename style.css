@@ -191,3 +191,8 @@ h2 {
 input[type="submit"] {
   padding: 0.2em;
 }
+
+.info {
+  font-size: small;
+  opacity: 75%;
+}
