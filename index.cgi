@@ -90,7 +90,12 @@ print <<HTML_PAGE;
       <input type="submit" value="send!">
     </form>
   </div>
-  <p>This website has been visited $visits times!</p>
+  <p>This website has been visited <b>$visits</b> times!</p>
+
+  <p class="info">
+    This website was made using cgi (perl)!! it's pretty cool check it out here: <a
+      href="https://tilde.club/wiki/cgi.html#introduction">CGI: Making web applications like it’s 90s</a>
+  </p>
 
   <hr>
 
