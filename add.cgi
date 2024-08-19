@@ -11,8 +11,17 @@ my $input = $ENV{CONTENT_TYPE};
 my $FormData = '';
 read(STDIN, $FormData, $ENV{'CONTENT_LENGTH'});
 
-write_message(sanitize_input(uri_unescape(substr($FormData, 8)) . "\n"));
+# Parse the incoming form data
+my ($name, $message) = parse_form_data($FormData);
 
+# Sanitize both fields
+$name = sanitize_input($name);
+$message = sanitize_input($message);
+
+write_message("$name: $message\n");
+
+
+#remove all < and >, and replace + with a space
 sub sanitize_input {
     my ($string) = @_;
     $string =~ s/[<>]//g;
@@ -27,6 +36,16 @@ sub write_message {
         print $fh $message;
         close($fh);
     }
+}
+
+sub parse_form_data {
+    my ($data) = @_;
+    # Split the data into key-value pairs
+    my %params = map { split(/=/, $_, 2) } split(/&/, $data);
+    # Decode the values
+    my $name = uri_unescape($params{'name'} // '');
+    my $message = uri_unescape($params{'message'} // '');
+    return ($name, $message);
 }
 
 print <<HTML_HEADERS;

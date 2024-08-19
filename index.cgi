@@ -85,7 +85,10 @@ print <<HTML_PAGE;
     <ul class="messages">$message_list</ul>
 
     <form action="https://tilde.club/~troubadour/add.cgi" method="post">
-      <!---<input type="text" id="name" name="name" required>--->
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <br>
+      <label for="message">Message:</label>
       <input type="text" id="message" name="message" required>
       <input type="submit" value="send!">
     </form>
