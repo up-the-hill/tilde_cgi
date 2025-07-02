@@ -3,12 +3,12 @@
 use strict;
 use warnings;
 
-# File to store the visit count
-my $counter_file = "counter.txt";
+my $visits_file = "counter.txt";
 my $messages_file = "messages.txt";
+my $plustwos_file = "plustwos.txt";
 
 # Read the current visit count, up by 1, and write to file
-my $visits = read_counter();
+my $visits = read_counter($visits_file);
 $visits++;
 update_counter($visits);
 
@@ -16,7 +16,11 @@ update_counter($visits);
 my @messages = read_messages();
 my $message_list = make_message_list(@messages);
 
+# Read plustwos
+my $plustwos = read_counter($plustwos_file);
+
 sub read_counter {
+  my $counter_file = shift;
     if (-e $counter_file) {
         open(my $fh, "<", $counter_file) or die "Cannot open file $counter_file: $!";
         my $visits = <$fh>;
@@ -41,7 +45,7 @@ sub read_messages {
 # Function to update the visit count in the file
 sub update_counter {
     my ($visits) = @_;
-    open(my $fh, ">", $counter_file) or die "Cannot open file $counter_file: $!";
+    open(my $fh, ">", $visits_file) or die "Cannot open file $visits_file $!";
     print $fh $visits;
     close($fh);
 }
@@ -94,6 +98,13 @@ print <<HTML_PAGE;
     </form>
   </div>
   <p>This website has been visited <b>$visits</b> times!</p>
+
+  If you like it, give me a +2!
+  <form action="https://tilde.club/~troubadour/plustwo.cgi" method="post">
+    <input type="submit" value="+2">
+  </form>
+  plustwo counter = @{[$plustwos * 2]}
+
 
   <hr>
 
